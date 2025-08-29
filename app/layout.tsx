@@ -25,8 +25,10 @@ export const metadata: Metadata = {
 //? Use individual layouts if a page needs different view, sidebars, alternative admin view
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -34,7 +36,10 @@ export default function RootLayout({
         <TanStackProvider>
           <Header />
 
-          <main>{children}</main>
+          <main>
+            {children}
+            {modal}
+          </main>
 
           <footer>
             <p>
