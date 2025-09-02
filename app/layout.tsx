@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 
 //* Fonts declaration
-const geistSans = Geist({
-  variable: "--font-geist-sans", // var for styles to use
-  subsets: ["latin"], // loads only latin symbols to lightweight the font
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const roboto = Roboto({
   subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-roboto",
+  display: "swap",
 });
 
 //* SEO Meta data (to use specifically for a page import type Metadata required)
@@ -22,7 +20,6 @@ export const metadata: Metadata = {
 };
 
 //* Root layout to wrap all the pages and components
-//? Use individual layouts if a page needs different view, sidebars, alternative admin view
 export default function RootLayout({
   children,
   modal,
@@ -32,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={roboto.variable}>
         <TanStackProvider>
           <Header />
 

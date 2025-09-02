@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Profile page",
+  description: "This is profile page",
 };
 
 const Profile = () => {

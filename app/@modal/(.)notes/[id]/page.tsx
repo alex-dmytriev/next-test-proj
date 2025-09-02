@@ -5,6 +5,15 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
+export const generateMetadata = async ({ params }: Props) => {
+  const { id } = await params;
+  const note = await getSingleNote(id);
+  return {
+    title: `Note: ${note.title}`,
+    desctiption: note.content.slice(0, 30),
+  };
+};
+
 const NotePreview = async ({ params }: Props) => {
   const { id } = await params;
   const note = await getSingleNote(id);
